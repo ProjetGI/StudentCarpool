@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/ride_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="232dp"
+        android:layout_marginLeft="232dp"
+        android:layout_marginTop="290dp"
+        android:text="Ajouter" />
+
+    <EditText
+        android:id="@+id/ride_departure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Ville de départ"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/ride_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="221dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Jour de départ"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/ride_arrival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Ville d'arrivée"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/ride_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Prix"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/ride_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="174dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Heure de départ"
+        android:inputType="time" />
+
+    <Button
+        android:id="@+id/ride_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="290dp"
+        android:text="Annuler" />
+
+</RelativeLayout>

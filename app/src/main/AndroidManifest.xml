@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gi2.servicedecovoiturage.logregform">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo_noshadow"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo_noshadow"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.gi2.servicedecovoiturage.RideOld"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name="com.gi2.servicedecovoiturage.RegistrationActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.gi2.servicedecovoiturage.Users"/>
+        <activity android:name="com.gi2.servicedecovoiturage.Chat">
+
+        </activity>
+        <activity android:name="com.gi2.servicedecovoiturage.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.gi2.servicedecovoiturage.Ride" />
+        <activity android:name="com.gi2.servicedecovoiturage.SplashScrActivity"
+            android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gi2.servicedecovoiturage.InteractionsActivity" />
+        <activity android:name="com.gi2.servicedecovoiturage.ReservationsActivity" />
+        <activity android:name="com.gi2.servicedecovoiturage.PWresetActivity"
+            android:theme="@style/AppTheme.Splash"></activity>
+    </application>
+
+</manifest>

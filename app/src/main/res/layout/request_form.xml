@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/addRequest"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="321dp"
+        android:text="Ajouter" />
+
+    <EditText
+        android:id="@+id/depart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Ville de départ"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/jour_depart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="269dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Jour de départ"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/arrivee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="120dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Ville d'arrivée"
+        android:inputType="textPersonName" />
+
+
+    <EditText
+        android:id="@+id/heure_depart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="195dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Heure de départ"
+        android:inputType="textPersonName" />
+
+</RelativeLayout>
