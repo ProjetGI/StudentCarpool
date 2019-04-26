@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "444620694286",
+    "firebase_url": "https://service-de-covoiturage.firebaseio.com",
+    "project_id": "service-de-covoiturage",
+    "storage_bucket": "service-de-covoiturage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444620694286:android:d910a323dc493f72",
+        "android_client_info": {
+          "package_name": "com.gi2.servicedecovoiturage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444620694286-8gnh2uhha381v9c14kc7d9s4vjhh5o43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH3CXJy7Anr9XR7fsnZyz3e3-TmbDM5Uk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444620694286-8gnh2uhha381v9c14kc7d9s4vjhh5o43.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
