@@ -5,10 +5,12 @@ public class Interaction {
     String driver;
     String client;
     String offer;
+    String invitation;
     String state;
     String id;
     String clientPhoneNumber;
     String driverPhoneNumber;
+    String type; // invitation or reservation
 
     public Interaction(){
 
@@ -63,5 +65,13 @@ public class Interaction {
 
     public void setDriverPhoneNumber(String driverPhoneNumber) {
         this.driverPhoneNumber = driverPhoneNumber;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
     }
 }

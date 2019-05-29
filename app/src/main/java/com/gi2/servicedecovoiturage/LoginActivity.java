@@ -109,12 +109,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    initCurrentUser();
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             progressDialog.dismiss();
+                            initCurrentUser();
                             Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this,RideOld.class));
                         }
@@ -183,6 +183,8 @@ public class LoginActivity extends AppCompatActivity {
                             currentUser.setUsername(documentSnapshot.getString("username"));
                             currentUser.setEmail(documentSnapshot.getString("email"));
                             currentUser.setPhoneNumber(documentSnapshot.getString("phone-number"));
+
+
 
                         } else {
                             Toast.makeText(LoginActivity.this , "Document does not exist", Toast.LENGTH_SHORT).show();

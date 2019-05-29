@@ -4,9 +4,18 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
+    <color name="yellow">#ffdc30</color>
     <color name="gray">#5b5b5b</color>
     <color name="myColor">#3F51B5</color>
     <color name="usernameColor">#ffffff</color>
     <color name="colorDark">#2A2E43</color>
+    <color name="colorRidePopup">#2d78b0</color>
+
+
+    <color name="first">#2d43b0</color>
+    <color name="second">#4287c3</color>
+    <color name="third">#0392e6</color>
+
+
 
 </resources>

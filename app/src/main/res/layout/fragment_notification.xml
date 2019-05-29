@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
     tools:context=".NotificationFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ListView
-        android:id="@+id/reservations_list"
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7sp"
+        android:layout_marginTop="7sp"
+        android:text="Notifications"
+        android:textSize="20sp" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="80"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/reservations_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/activeRide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7sp"
+        android:layout_marginTop="7sp"
+        android:text="Active Ride : There is currently no active ride!"
+        android:textSize="20sp" />
+
+
+
+        <Button
+        android:id="@+id/viewoffer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8sp"
+        android:layout_marginLeft="8sp"
+        android:visibility="gone"
+        android:text="View Active Offer" />
+
+
+
+        <Button
+            android:id="@+id/chatnow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8sp"
+            android:layout_marginLeft="8sp"
+            android:visibility="gone"
+            android:text="ChAT online" />
+
+        <Button
+            android:id="@+id/markascompleted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8sp"
+            android:layout_marginLeft="8sp"
+            android:visibility="gone"
+            android:text="Mark This Ride as Completed" />
+
+
+
+</LinearLayout>

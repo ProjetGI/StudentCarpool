@@ -104,7 +104,7 @@ public class NewRideDialog extends DialogFragment implements View.OnClickListene
                     database.collection("offers").add(data);
                     //Toast.makeText(getActivity(), driver, Toast.LENGTH_SHORT).show();
 
-                    OffersFragment.VoyageList.add(new Voyage(driver,departure,arrival,price,time,date));
+                    OffersFragment.VoyageList.add(new Voyage(driver,departure,arrival,price,time,date,"","",""));
                     OffersFragment.adapter.notifyDataSetChanged();
 
 
