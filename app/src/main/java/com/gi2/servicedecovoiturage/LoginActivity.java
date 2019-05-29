@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
 
         if(user != null) {
-
+            //static UserProfile currentUser initialisation
             initCurrentUser();
             progressDialog.setMessage("Verificating...");
             progressDialog.show();
@@ -57,9 +57,20 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     progressDialog.dismiss();
-                    Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                    finish();
-                    startActivity(new Intent(LoginActivity.this,RideOld.class));
+
+                    if(!currentUser.getPending()) {
+                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        finish();
+                        if (currentUser.isAdmin()) {
+                            Toast.makeText(LoginActivity.this, "hi admin", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this, adminBar.class));
+
+                        } else {
+                            startActivity(new Intent(LoginActivity.this, RideOld.class));
+
+                        }
+                    }
+                    else Toast.makeText(LoginActivity.this, "Sorry you are not yet approved by the admin", Toast.LENGTH_SHORT).show();
                 }
             }, 1000);
 
@@ -115,8 +126,20 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             progressDialog.dismiss();
-                            Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this,RideOld.class));
+                            if(!currentUser.getPending()) {
+                                Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                finish();
+                                if (currentUser.isAdmin()) {
+                                    //Toast.makeText(LoginActivity.this, "hi admin", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(LoginActivity.this, adminBar.class));
+
+                                } else {
+                                    startActivity(new Intent(LoginActivity.this, RideOld.class));
+
+                                }
+                            }
+                            else Toast.makeText(LoginActivity.this, "Sorry you are not yet approved by the admin", Toast.LENGTH_SHORT).show();
+
                         }
                     }, 2000);
 
@@ -167,10 +190,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initCurrentUser(){
 
-        currentUser = new UserProfile("test","test","test","test");
+        currentUser = new UserProfile("test","test","test","test",false,"test");
+        //currentUser = new UserProfile();
 
-        String currentDriverUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        //Toast.makeText(this, "UID IS "+currentDriverUID, Toast.LENGTH_SHORT).show();
+        final String currentDriverUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+       // Toast.makeText(LoginActivity.this,currentDriverUID,Toast.LENGTH_SHORT).show();
+
         DocumentReference currentDriverInfo = database.collection("users").document(currentDriverUID);
 
 
@@ -183,6 +208,9 @@ public class LoginActivity extends AppCompatActivity {
                             currentUser.setUsername(documentSnapshot.getString("username"));
                             currentUser.setEmail(documentSnapshot.getString("email"));
                             currentUser.setPhoneNumber(documentSnapshot.getString("phone-number"));
+                            currentUser.setAdmin(documentSnapshot.getBoolean("admin"));
+                            currentUser.setPending(documentSnapshot.getBoolean("pending"));
+                            currentUser.setUserid(currentDriverUID);
 
                         } else {
                             Toast.makeText(LoginActivity.this , "Document does not exist", Toast.LENGTH_SHORT).show();

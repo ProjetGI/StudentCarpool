@@ -96,7 +96,7 @@
 
             <TextView
 
-                android:id="@+id/email"
+                android:id="@+id/reported_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 

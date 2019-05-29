@@ -9,29 +9,37 @@
         android:roundIcon="@mipmap/logo_noshadow"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.gi2.servicedecovoiturage.RideOld"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name="com.gi2.servicedecovoiturage.RegistrationActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.gi2.servicedecovoiturage.Users"/>
-        <activity android:name="com.gi2.servicedecovoiturage.Chat">
-
-        </activity>
-        <activity android:name="com.gi2.servicedecovoiturage.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="com.gi2.servicedecovoiturage.RideOld"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gi2.servicedecovoiturage.RegistrationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.gi2.servicedecovoiturage.Users" />
+        <activity android:name="com.gi2.servicedecovoiturage.Chat"></activity>
+        <activity
+            android:name="com.gi2.servicedecovoiturage.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.gi2.servicedecovoiturage.Ride" />
-        <activity android:name="com.gi2.servicedecovoiturage.SplashScrActivity"
+        <activity
+            android:name="com.gi2.servicedecovoiturage.SplashScrActivity"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name="com.gi2.servicedecovoiturage.InteractionsActivity" />
+        <activity android:name="com.gi2.servicedecovoiturage.adminBar" />
         <activity android:name="com.gi2.servicedecovoiturage.ReservationsActivity" />
-        <activity android:name="com.gi2.servicedecovoiturage.PWresetActivity"
-            android:theme="@style/AppTheme.Splash"></activity>
+        <activity
+            android:name="com.gi2.servicedecovoiturage.PWresetActivity"
+            android:theme="@style/AppTheme.Splash" />
+        <activity
+            android:name="com.gi2.servicedecovoiturage.ReportDetail"
+            android:label="@string/title_activity_report_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
