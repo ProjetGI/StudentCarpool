@@ -120,7 +120,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    initCurrentUser();
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -140,6 +139,9 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             else Toast.makeText(LoginActivity.this, "Sorry you are not yet approved by the admin", Toast.LENGTH_SHORT).show();
 
+                            initCurrentUser();
+                            Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this,RideOld.class));
                         }
                     }, 2000);
 
@@ -211,6 +213,8 @@ public class LoginActivity extends AppCompatActivity {
                             currentUser.setAdmin(documentSnapshot.getBoolean("admin"));
                             currentUser.setPending(documentSnapshot.getBoolean("pending"));
                             currentUser.setUserid(currentDriverUID);
+
+
 
                         } else {
                             Toast.makeText(LoginActivity.this , "Document does not exist", Toast.LENGTH_SHORT).show();

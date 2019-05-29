@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/StudentCarpool.iml" filepath="$PROJECT_DIR$/StudentCarpool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Application de covoiturage.iml" filepath="$PROJECT_DIR$/Application de covoiturage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/StudentCarpool.iml" filepath="$PROJECT_DIR$/.idea/StudentCarpool.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

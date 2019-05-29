@@ -7,23 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.gi2.servicedecovoiturage.logregform.R;
-
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class CustomAdapter extends ArrayAdapter<Voyage> {
     ArrayList<Voyage> mList;
+    ArrayList<Voyage> arraylist;
     Context mContext;
 
     public CustomAdapter(Context context, ArrayList<Voyage> mList){
         super(context, 0, mList);
         this.mList = mList;
         this.mContext = context;
+        arraylist = new ArrayList<Voyage>();
+        arraylist.addAll(mList);
     }
 
     static class ViewHolder{
@@ -70,5 +70,63 @@ public class CustomAdapter extends ArrayAdapter<Voyage> {
         date.setText(voyageCourant.getmDate());
 
         return v;
+    }
+
+    public void filter(String charText) {
+        if(!arraylist.isEmpty()){
+            charText = charText.toLowerCase();
+            mList.clear();
+            if (charText.length() == 0) {
+                mList.addAll(arraylist);;
+            }
+            else
+            {
+                for (Voyage voyage : arraylist) {
+                    if (voyage.getmDeparture().toLowerCase().contains(charText)) {
+                        mList.add(voyage);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }
+
+    }
+
+    public void filterArrival(String charText) {
+        if(!arraylist.isEmpty()){
+            charText = charText.toLowerCase();
+            mList.clear();
+            if (charText.length() == 0) {
+                mList.addAll(arraylist);;
+            }
+            else
+            {
+                for (Voyage voyage : arraylist) {
+                    if (voyage.getmArrival().toLowerCase().contains(charText)) {
+                        mList.add(voyage);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    public void filterDate(String charText) {
+        if(!arraylist.isEmpty()){
+            charText = charText.toLowerCase();
+            mList.clear();
+            if (charText.length() == 0) {
+                mList.addAll(arraylist);;
+            }
+            else
+            {
+                for (Voyage voyage : arraylist) {
+                    if (voyage.getmDate().toLowerCase().contains(charText)) {
+                        mList.add(voyage);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }
     }
 }
