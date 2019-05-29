@@ -31,6 +31,7 @@ public class AddRide extends AppCompatActivity {
     EditText datePicker;
     EditText timePicker ;
     EditText pricePicker;
+    EditText descriptionPicker;
     private FirebaseFirestore database;
 
 
@@ -47,6 +48,7 @@ public class AddRide extends AppCompatActivity {
         datePicker= (EditText) findViewById(R.id.DatePicker);
         timePicker = (EditText) findViewById(R.id.timePicker);
         pricePicker = (EditText) findViewById(R.id.pricePicker);
+        descriptionPicker = (EditText) findViewById(R.id.description);
 
         pickDeparture();
         pickArrival();
@@ -161,6 +163,7 @@ public class AddRide extends AppCompatActivity {
         String price = pricePicker.getText().toString();
         String time = timePicker.getText().toString();
         String date = datePicker.getText().toString();
+        String description = descriptionPicker.getText().toString();
 
         if(!(departure.equals("")&& arrival.equals("")&&price.equals("")&&time.equals("")&&date.equals(""))){
             Map<String, Object> data = new HashMap<>();
@@ -173,8 +176,8 @@ public class AddRide extends AppCompatActivity {
             data.put("driverUID",FirebaseAuth.getInstance().getUid());
             database.collection("offers").add(data);
             //Toast.makeText(getActivity(), driver, Toast.LENGTH_SHORT).show();
-
-            OffersFragment.VoyageList.add(new Voyage(driver,departure,arrival,price,time,date));
+            //TODO add current place picker
+            OffersFragment.VoyageList.add(new Voyage(driver,departure,arrival,price,time,date,description,"4","0"));
             OffersFragment.adapter.notifyDataSetChanged();
             finish();
         }
