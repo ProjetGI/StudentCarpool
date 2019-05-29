@@ -45,6 +45,7 @@ public class OffersFragment extends Fragment {
 
     //clicked Voyage
     Voyage clickedVoyage;
+    RidePopup ridePopup;
 
 
     //List of rides
@@ -83,6 +84,7 @@ public class OffersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_offers, container, false);
 
+        ridePopup = new RidePopup(getActivity());
 
         listView = (ListView) view.findViewById(R.id.listView);
         VoyageList = new ArrayList<Voyage>();
@@ -161,7 +163,9 @@ public class OffersFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 clickedVoyage = VoyageList.get(i);
-                new AlertDialog.Builder(getActivity())
+                ridePopup.show(clickedVoyage);
+
+                /*new AlertDialog.Builder(getActivity())
                         .setTitle("Confirmation")
                         .setMessage("Do you really want to book this ride?")
                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -179,7 +183,7 @@ public class OffersFragment extends Fragment {
                                 database.collection("reservations").add(data);
 
                             }})
-                        .setNegativeButton(android.R.string.no, null).show();
+                        .setNegativeButton(android.R.string.no, null).show();*/
             }
         });
 

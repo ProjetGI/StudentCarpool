@@ -153,7 +153,16 @@ public class DemandsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 clickedRequest = RequestList.get(i);
-                new AlertDialog.Builder(getActivity())
+
+                RideInviteChooser dialog = new RideInviteChooser();
+                dialog.setReq(clickedRequest);
+                dialog.show(getFragmentManager(),"New Invitation");
+
+
+
+
+
+                /*new AlertDialog.Builder(getActivity())
                         .setTitle("Confirmation")
                         .setMessage("Do you really want to book this ride?")
                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -171,7 +180,7 @@ public class DemandsFragment extends Fragment {
                                 database.collection("invitations").add(data);
 
                             }})
-                        .setNegativeButton(android.R.string.no, null).show();
+                        .setNegativeButton(android.R.string.no, null).show();*/
             }
         });
 

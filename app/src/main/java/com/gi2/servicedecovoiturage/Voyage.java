@@ -7,18 +7,24 @@ public class Voyage {
     private String mPrice;
     private String mTime;
     private String mDate;
+    private String maxPlaces;
+    private String currentPlaces;
+    private String mDescription;
     private String documentName;
 
     public Voyage (){
     }
 
-    public Voyage(String mDriver,String mDeparture,String mArrival,String mPrice,String mTime,String mDate){
+    public Voyage(String mDriver,String mDeparture,String mArrival,String mPrice,String mTime,String mDate,String mDescription,String maxPlaces,String currentPlaces){
         this.mDriver = mDriver;
         this.mDeparture = mDeparture;
         this.mArrival = mArrival;
         this.mPrice = mPrice;
         this.mTime = mTime;
         this.mDate = mDate;
+        this.mDescription = mDescription;
+        this.maxPlaces = maxPlaces;
+        this.currentPlaces = currentPlaces;
     }
 
     public String getmDriver(){ return mDriver;}
@@ -27,6 +33,19 @@ public class Voyage {
     public String getmPrice(){ return mPrice;}
     public String getmTime(){ return mTime;}
     public String getmDate(){ return mDate;}
+
+
+    public String getmDescription() {
+        return mDescription;
+    }
+
+    public String getCurrentPlaces() {
+        return currentPlaces;
+    }
+
+    public String getMaxPlaces() {
+        return maxPlaces;
+    }
 
     public String getDocumentName() {
         return documentName;

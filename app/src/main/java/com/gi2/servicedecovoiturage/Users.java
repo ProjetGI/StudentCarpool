@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,6 +25,9 @@ import com.android.volley.toolbox.Volley;
 import com.gi2.servicedecovoiturage.logregform.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -35,6 +39,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import io.grpc.Context;
 
@@ -46,6 +51,9 @@ public class Users extends AppCompatActivity {
     ProgressDialog pd;
     ImageView imageView;
     private UserAdapter adapter;
+    private FirebaseFirestore database=FirebaseFirestore.getInstance();
+    Interaction activeInteraction;
+    ArrayList<String> clients = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +96,14 @@ public class Users extends AppCompatActivity {
         try {
             JSONObject obj = new JSONObject(s);
 
-            Iterator i = obj.keys();
+            final Iterator i = obj.keys();
+
+
+            Bundle b = getIntent().getExtras();
+            clients = null;
+            if(b != null)
+                clients = b.getStringArrayList("clients");
+
 
 
             while(i.hasNext()){
@@ -96,9 +111,16 @@ public class Users extends AppCompatActivity {
 
                 if(!key.equals(UserDetails.username)) {
 
-                    //al.add(key);
-                    UsersList.add(new User(key));
-                  }
+                    User user = new User(key);
+                    if(clients!=null)
+                    {
+                        if(clients.contains(user.getmUsername()))
+                            UsersList.add(user);
+                    }
+                    else
+                        UsersList.add(user);
+
+                }
                 totalUsers++;
             }
 
@@ -106,11 +128,14 @@ public class Users extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
         //usersList.setVisibility(View.VISIBLE);
-        adapter = new UserAdapter(this, UsersList);
+        adapter = new UserAdapter(getApplicationContext(), UsersList);
         usersList.setAdapter(adapter);
 
         pd.dismiss();
         //imageView.setVisibility(View.GONE);
+
+
     }
 }
