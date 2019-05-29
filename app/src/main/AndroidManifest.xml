@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gi2.servicedecovoiturage.logregform">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
 
     <application
         android:allowBackup="true"
@@ -9,29 +13,56 @@
         android:roundIcon="@mipmap/logo_noshadow"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.gi2.servicedecovoiturage.RideOld"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name="com.gi2.servicedecovoiturage.RegistrationActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.gi2.servicedecovoiturage.Users"/>
-        <activity android:name="com.gi2.servicedecovoiturage.Chat">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.0.0"
+            tools:replace="android:value" />
+
+        <activity android:name="com.gi2.servicedecovoiturage.AddRide">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gi2.servicedecovoiturage.RideOld" />
         </activity>
-        <activity android:name="com.gi2.servicedecovoiturage.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.gi2.servicedecovoiturage.AddRequest">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gi2.servicedecovoiturage.RideOld" />
+        </activity>
+        <activity
+            android:name="com.gi2.servicedecovoiturage.PlacePickerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.gi2.servicedecovoiturage.RideOld"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.gi2.servicedecovoiturage.RegistrationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.gi2.servicedecovoiturage.Users" />
+        <activity android:name="com.gi2.servicedecovoiturage.Chat"></activity>
+        <activity
+            android:name="com.gi2.servicedecovoiturage.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.gi2.servicedecovoiturage.Ride" />
-        <activity android:name="com.gi2.servicedecovoiturage.SplashScrActivity"
+        <activity
+            android:name="com.gi2.servicedecovoiturage.SplashScrActivity"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name="com.gi2.servicedecovoiturage.InteractionsActivity" />
         <activity android:name="com.gi2.servicedecovoiturage.ReservationsActivity" />
-        <activity android:name="com.gi2.servicedecovoiturage.PWresetActivity"
-            android:theme="@style/AppTheme.Splash"></activity>
+        <activity
+            android:name="com.gi2.servicedecovoiturage.PWresetActivity"
+            android:theme="@style/AppTheme.Splash" />
     </application>
 
 </manifest>

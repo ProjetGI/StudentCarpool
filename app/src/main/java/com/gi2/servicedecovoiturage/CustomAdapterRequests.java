@@ -7,23 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.gi2.servicedecovoiturage.logregform.R;
-
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class CustomAdapterRequests extends ArrayAdapter<Request> {
     ArrayList<Request> mList;
+    ArrayList<Request> arraylist;
     Context mContext;
 
     public CustomAdapterRequests(Context context, ArrayList<Request> mList){
         super(context, 0, mList);
         this.mList = mList;
         this.mContext = context;
+        arraylist = new ArrayList<Request>();
+        arraylist.addAll(mList);
     }
 
     static class ViewHolder{
@@ -66,6 +66,64 @@ public class CustomAdapterRequests extends ArrayAdapter<Request> {
         date.setText(requestCourant.getDate());
 
         return v;
+    }
+
+    public void filter(String charText) {
+        if(!arraylist.isEmpty()){
+            charText = charText.toLowerCase();
+            mList.clear();
+            if (charText.length() == 0) {
+                mList.addAll(arraylist);;
+            }
+            else
+            {
+                for (Request request : arraylist) {
+                    if (request.getDeparture().toLowerCase().contains(charText)) {
+                        mList.add(request);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }
+
+    }
+
+    public void filterArrival(String charText) {
+        if(!arraylist.isEmpty()){
+            charText = charText.toLowerCase();
+            mList.clear();
+            if (charText.length() == 0) {
+                mList.addAll(arraylist);;
+            }
+            else
+            {
+                for (Request request : arraylist) {
+                    if (request.getArrival().toLowerCase().contains(charText)) {
+                        mList.add(request);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    public void filterDate(String charText) {
+        if(!arraylist.isEmpty()){
+            charText = charText.toLowerCase();
+            mList.clear();
+            if (charText.length() == 0) {
+                mList.addAll(arraylist);;
+            }
+            else
+            {
+                for (Request request : arraylist) {
+                    if (request.getDate().toLowerCase().contains(charText)) {
+                        mList.add(request);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }
     }
 }
 
