@@ -59,10 +59,16 @@
             </intent-filter>
         </activity>
         <activity android:name="com.gi2.servicedecovoiturage.InteractionsActivity" />
+        <activity android:name="com.gi2.servicedecovoiturage.adminBar" />
         <activity android:name="com.gi2.servicedecovoiturage.ReservationsActivity" />
+	<activity android:name="com.gi2.servicedecovoiturage.profilActivity" />
         <activity
             android:name="com.gi2.servicedecovoiturage.PWresetActivity"
             android:theme="@style/AppTheme.Splash" />
+        <activity
+            android:name="com.gi2.servicedecovoiturage.ReportDetail"
+            android:label="@string/title_activity_report_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_pend"
+        android:icon="@drawable/users"
+        android:title="Pending users" />
+    <item
+        android:id="@+id/nav_report"
+        android:icon="@drawable/report"
+        android:title="Report" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/profile_black"
+        android:title="Profile" />
+</menu>

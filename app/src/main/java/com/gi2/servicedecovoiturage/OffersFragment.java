@@ -225,7 +225,7 @@ public class OffersFragment extends Fragment {
 
     private void initCurrentUser(){
 
-        currentUser = new UserProfile("test","test","test","test");
+        currentUser = new UserProfile("test","test","test","test",false,"test");
 
         String currentDriverUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         //Toast.makeText(this, "UID IS "+currentDriverUID, Toast.LENGTH_SHORT).show();
@@ -240,6 +240,8 @@ public class OffersFragment extends Fragment {
 
                             currentUser.setUsername(documentSnapshot.getString("username"));
                             currentUser.setEmail(documentSnapshot.getString("email"));
+                            currentUser.setAdmin(documentSnapshot.getBoolean("admin"));
+                            currentUser.setEmail(documentSnapshot.getString("users"));
 
                         } else {
                             Toast.makeText(getActivity() , "Document does not exist", Toast.LENGTH_SHORT).show();

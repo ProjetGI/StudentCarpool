@@ -66,6 +66,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 if(validateInput(inputName, inputPw, inputEmail))
                          registerUser(inputName, inputPw, inputEmail,inputPhoneNumber);
+                         Toast.makeText(RegistrationActivity.this,"Successfully registered",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -108,7 +109,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         progressDialog.dismiss();
                         sendUserData(inputName,inputPw,inputEmail);
-                        addFireStoreUser(inputName,inputEmail,inputPw,inputPhoneNumber);
+                        addFireStoreUser(inputName,inputEmail,inputPw,inputPhoneNumber,false);
                         Toast.makeText(RegistrationActivity.this,"You've been registered successfully.",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
                     }
@@ -153,7 +154,7 @@ public class RegistrationActivity extends AppCompatActivity {
         return true;
     }
 
-    private void addFireStoreUser(String name, String email,String password,String phoneNumber){
+    private void addFireStoreUser(String name, String email,String password,String phoneNumber,Boolean admin){
 
         //get current logged in user IUD
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
@@ -167,6 +168,9 @@ public class RegistrationActivity extends AppCompatActivity {
         data.put("email", email);
         data.put("password",password);
         data.put("phone-number",phoneNumber);
+        data.put("admin",admin);
+        data.put("userid",userIUD);
+        data.put("pending",true);
         FirebaseFirestore.getInstance().collection("users").document(userIUD).set(data);
         System.out.println("NEW USER ADDED!");
     }

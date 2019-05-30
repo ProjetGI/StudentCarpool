@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/report_create"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="185dp"
+        android:layout_marginLeft="185dp"
+        android:layout_marginTop="219dp"
+        android:text="Ajouter" />
+
+    <!--<EditText-->
+        <!--android:id="@+id/report_username"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="35dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:ems="10"-->
+        <!--android:hint="Username"-->
+        <!--android:inputType="textPersonName" />-->
+
+
+    <EditText
+        android:id="@+id/report_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Report Title"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/report_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Description"
+        />
+
+
+    <Button
+        android:id="@+id/report_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="219dp"
+        android:text="Annuler" />
+
+</RelativeLayout>

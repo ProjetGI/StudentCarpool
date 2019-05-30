@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:design="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gi2.servicedecovoiturage.adminBar">
+
+    <FrameLayout
+        android:id="@+id/cont"
+        android:layout_width="match_parent"
+        android:layout_height="482dp"
+        android:layout_weight="1"
+        android:background="#f1f1f1">
+
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/tabAdm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        design:menu="@menu/menu1" />
+</LinearLayout>

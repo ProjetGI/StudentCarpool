@@ -191,4 +191,10 @@
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/pricePicker" />
 
+
+
+
+
+
+
 </android.support.constraint.ConstraintLayout>
