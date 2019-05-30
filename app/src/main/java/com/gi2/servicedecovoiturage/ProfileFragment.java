@@ -38,6 +38,7 @@ public class ProfileFragment extends Fragment {
 
     TextView username;
     TextView email;
+    TextView cne;
 
     private Button btnChoose, btnLogout;
     private ImageView imageView;
@@ -80,6 +81,9 @@ public class ProfileFragment extends Fragment {
 
         email = (TextView)view.findViewById(R.id.reported_user);
         email.setText(LoginActivity.currentUser.getEmail());
+
+        cne = (TextView)view.findViewById(R.id.cne);
+        cne.setText(LoginActivity.currentUser.getCNE());
 
         btnChoose = (Button) view.findViewById(R.id.btnChoose);
         imageView = (ImageView) view.findViewById(R.id.profilePicture);

@@ -111,7 +111,7 @@ public class OffersFragment extends Fragment {
         });
 
         loadDatabase();
-        initCurrentUser();
+        //initCurrentUser();
 
         departureFilter = (EditText) view.findViewById(R.id.departureFilter);
         departureFilter.addTextChangedListener(new TextWatcher() {
@@ -225,7 +225,7 @@ public class OffersFragment extends Fragment {
 
     private void initCurrentUser(){
 
-        currentUser = new UserProfile("test","test","test","test",false,"test");
+        currentUser = new UserProfile("test","test","test","test","test",false,"test");
 
         String currentDriverUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         //Toast.makeText(this, "UID IS "+currentDriverUID, Toast.LENGTH_SHORT).show();

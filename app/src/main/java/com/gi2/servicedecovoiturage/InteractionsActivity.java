@@ -68,7 +68,6 @@ public class InteractionsActivity extends AppCompatActivity {
         loadDatabase();
         initCurrentUser();
 
-        Toast.makeText(this, "CURRENT Username = "+currentUser.getEmail(), Toast.LENGTH_SHORT).show();
     }
 
     private void loadDatabase(){
@@ -108,7 +107,7 @@ public class InteractionsActivity extends AppCompatActivity {
 
     private void initCurrentUser(){
 
-        currentUser = new UserProfile("test","test","test","test",false,"test");
+        currentUser = new UserProfile("test","test","test","test","test",false,"test");
 
         String currentDriverUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         //Toast.makeText(this, "UID IS "+currentDriverUID, Toast.LENGTH_SHORT).show();

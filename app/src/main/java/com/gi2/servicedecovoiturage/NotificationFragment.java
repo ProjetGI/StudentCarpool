@@ -168,7 +168,6 @@ public class NotificationFragment extends Fragment {
 
                         if (!queryDocumentSnapshots.isEmpty()) {
 
-                            Toast.makeText(getActivity(), "well success bitch!", Toast.LENGTH_SHORT).show();
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
                             DocumentSnapshot d=list.get(0);

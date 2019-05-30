@@ -148,23 +148,6 @@
                 <!--android:text="********"-->
                 <!--android:textSize="24sp" />-->
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:text="CNE"
-                android:textColor="@color/myColor"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/cne"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:text="1337639843"
-                android:textSize="24sp" />
-
         </LinearLayout>
 
 

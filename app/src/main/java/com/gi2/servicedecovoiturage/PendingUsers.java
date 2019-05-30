@@ -147,10 +147,9 @@ public class PendingUsers  extends Fragment {
                                     currentUser.setUsername(d.getString("username"));
                                     currentUser.setEmail(d.getString("email"));
                                     currentUser.setPhoneNumber(d.getString("phone-number"));
-                                    //currentUser.setAdmin(d.getBoolean("admin"));
+                                    currentUser.setCNE(d.getString("CNE"));
                                     currentUser.setUserid(d.getString("userid"));
 
-                                    //r.setDocumentName(d.getId());
                                     userPendingList.add(currentUser);
                                 }
 

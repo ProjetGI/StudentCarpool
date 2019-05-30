@@ -26,6 +26,7 @@ public class CustomAdapterUserPending extends ArrayAdapter<UserProfile> {
         static class ViewHolder{
             TextView username;
             TextView email;
+            TextView cne;
 
         }
         @NonNull
@@ -38,6 +39,7 @@ public class CustomAdapterUserPending extends ArrayAdapter<UserProfile> {
                 vHolder = new com.gi2.servicedecovoiturage.CustomAdapterUserPending.ViewHolder();
                 vHolder.username =(TextView) v.findViewById(R.id.username);
                 vHolder.email = (TextView)  v.findViewById(R.id.reported_user);
+                vHolder.cne = (TextView)  v.findViewById(R.id.cne);
 
                 v.setTag(vHolder);
             }
@@ -46,11 +48,15 @@ public class CustomAdapterUserPending extends ArrayAdapter<UserProfile> {
             }
 
             UserProfile user = mList.get(position);
+
             TextView mail = vHolder.email ;
             mail.setText(user.getEmail());
 
             TextView name = vHolder.username;
             name.setText(user.getUsername());
+
+            TextView cne = vHolder.cne;
+            cne.setText(user.getCNE());
 
             return v;
         }
