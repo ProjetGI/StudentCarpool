@@ -35,11 +35,14 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class profilActivity extends AppCompatActivity {
 
+    ArrayList<String> infos;
     TextView username;
     TextView email;
+    TextView phone;
 
     private Button btnChoose, btnLogout, btnReport;
     private ImageView imageView;
@@ -62,11 +65,20 @@ public class profilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
 
+
+        Bundle b = getIntent().getExtras();
+        infos = null;
+        if(b != null)
+            infos = b.getStringArrayList("infos");
+
         username = (TextView)findViewById(R.id.username);
-        username.setText(LoginActivity.currentUser.getUsername());
+        username.setText(infos.get(0));
 
         email = (TextView)findViewById(R.id.email);
-        email.setText(LoginActivity.currentUser.getEmail());
+        email.setText(infos.get(1));
+
+        phone = (TextView)findViewById(R.id.phone);
+        phone.setText(infos.get(2));
 
 //        btnChoose = (Button) findViewById(R.id.btnChoose);
         imageView = (ImageView) findViewById(R.id.profilePicture);
@@ -75,7 +87,7 @@ public class profilActivity extends AppCompatActivity {
         storageReference = storage.getReference();
 
         StorageReference storageRef = storage.getReferenceFromUrl("gs://service-de-covoiturage.appspot.com")
-                .child("users/"+ LoginActivity.currentUser.getUsername()+".jpg");
+                .child("users/"+ infos.get(0)+".jpg");
         try {
             final File localFile = File.createTempFile("images", "jpg");
             storageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
@@ -91,28 +103,9 @@ public class profilActivity extends AppCompatActivity {
             });
         } catch (IOException e ) {}
 
-//        btnChoose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                chooseImage();
-//            }
-//        });
 
-        firebaseAuth = FirebaseAuth.getInstance();
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-//        btnLogout = findViewById(R.id.btnLogout);
-
-//        btnLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                firebaseAuth.signOut();
-////                getActivity().finish();
-//                startActivity(new Intent(profilActivity.this,LoginActivity.class));
-//            }
-//        });
 
         btnReport = (Button) findViewById(R.id.buttonReport);
         btnReport.setOnClickListener(new View.OnClickListener() {
@@ -174,68 +167,11 @@ public class profilActivity extends AppCompatActivity {
 
     }
 
-    private void chooseImage() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
-    }
 
-    private void uploadImage() {
 
-        if(filePath != null)
-        {
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
 
-            //Toast.makeText(getActivity(), FirebaseAuth.getInstance().getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
 
-            StorageReference ref = storageReference.child("users/"+ LoginActivity.currentUser.getUsername()+".jpg");
-            ref.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), "Uploaded", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                    .getTotalByteCount());
-                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
-                        }
-                    });
-        }
-    }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null )
-        {
-            filePath = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), filePath);
-                imageView.setImageBitmap(bitmap);
-                uploadImage();
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        }
-    }
 
 }
 

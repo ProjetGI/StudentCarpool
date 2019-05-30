@@ -24,14 +24,19 @@ import android.widget.Toast;
 import com.gi2.servicedecovoiturage.logregform.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RidePopup{
@@ -41,7 +46,7 @@ public class RidePopup{
     FirebaseStorage storage;
     private ImageView profilePic;
     private TextView name, departure,arrival,date,price,places,description,txtclose;
-    Button action,contact;
+    Button action,contact,viewprofile;
     Context ctx;
 
 
@@ -77,6 +82,7 @@ public class RidePopup{
 
         action = (Button) myDialog.findViewById(R.id.action);
         contact = (Button) myDialog.findViewById(R.id.message);
+        viewprofile = (Button) myDialog.findViewById(R.id.viewprofile);
 
 
     }
@@ -134,6 +140,40 @@ public class RidePopup{
                 UserDetails.chatWith = finalVoyage.getmDriver();
                 Intent chatIntent = new Intent(ctx,Chat.class);
                 ctx.startActivity(chatIntent);
+
+            }
+        });
+
+        viewprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                database.collection("users").whereEqualTo("username", finalVoyage.getmDriver())
+                        .get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+
+                                List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                DocumentSnapshot d = list.get(0);
+
+                                ArrayList<String> infos = new ArrayList<>();
+                                infos.add(d.getString("username"));
+                                infos.add(d.getString("email"));
+                                infos.add(d.getString("phone-number"));
+
+
+                                Intent intent = new Intent(ctx, profilActivity.class);
+                                Bundle b = new Bundle();
+                                b.putStringArrayList("infos", infos);
+                                intent.putExtras(b); //Put your id to your next Intent
+                                ctx.startActivity(intent);
+
+
+
+                            }
+                        });
 
             }
         });

@@ -189,7 +189,13 @@
         android:id="@+id/message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25sp"
         android:text="Send a message" />
+
+    <Button
+        android:id="@+id/viewprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6sp"
+        android:text="View Profile" />
 
 </LinearLayout>
