@@ -32,7 +32,7 @@ public class AddRide extends AppCompatActivity {
     EditText timePicker ;
     EditText pricePicker;
     EditText descriptionPicker;
-    //EditText placesPicker;
+    EditText placesPicker;
     private FirebaseFirestore database;
 
 
@@ -46,11 +46,11 @@ public class AddRide extends AppCompatActivity {
 
         arrivalPicker = findViewById(R.id.arrivalPicker);
         departurePicker = findViewById(R.id.departurePicker);
-        datePicker= (EditText) findViewById(R.id.DatePicker);
-        timePicker = (EditText) findViewById(R.id.timePicker);
-        pricePicker = (EditText) findViewById(R.id.pricePicker);
-        descriptionPicker = (EditText) findViewById(R.id.description);
-        //placesPicker = (EditText) findViewById(R.id.places);
+        datePicker= findViewById(R.id.DatePicker);
+        timePicker = findViewById(R.id.timePicker);
+        pricePicker = findViewById(R.id.pricePicker);
+        descriptionPicker = findViewById(R.id.description);
+        placesPicker = findViewById(R.id.maxPlaces);
 
         pickDeparture();
         pickArrival();
@@ -166,7 +166,7 @@ public class AddRide extends AppCompatActivity {
         String time = timePicker.getText().toString();
         String date = datePicker.getText().toString();
         String description = descriptionPicker.getText().toString();
-        //String places = placesPicker.getText().toString();
+        String places = placesPicker.getText().toString();
 
         if(!(departure.equals("")&& arrival.equals("")&&price.equals("")&&time.equals("")&&date.equals(""))){
             Map<String, Object> data = new HashMap<>();
@@ -177,7 +177,7 @@ public class AddRide extends AppCompatActivity {
             data.put("mTime", time);
             data.put("mDate", date);
             data.put("mDescription", description);
-            //data.put("maxPlaces", places);
+            data.put("maxPlaces", places);
             data.put("driverUID",FirebaseAuth.getInstance().getUid());
             database.collection("offers").add(data);
             //Toast.makeText(getActivity(), driver, Toast.LENGTH_SHORT).show();

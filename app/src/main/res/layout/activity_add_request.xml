@@ -148,7 +148,7 @@
         android:focusable="false"/>
 
     <EditText
-        android:id="@+id/description"
+        android:id="@+id/maxPlaces"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="10dp"

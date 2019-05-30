@@ -6,6 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".AddRide">
 
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:focusable="auto"
+        android:inputType="text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/pricePicker" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="Description"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="70dp"
@@ -121,14 +150,14 @@
         android:id="@+id/textView7"
         android:layout_width="70dp"
         android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:gravity="center_vertical"
-        android:text="Description"
+        android:text="maxPlaces"
         android:textColor="@color/colorPrimary"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView8"
@@ -176,20 +205,20 @@
         app:layout_constraintTop_toBottomOf="@+id/timePicker" />
 
     <EditText
-        android:id="@+id/description"
+        android:id="@+id/maxPlaces"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:ems="10"
         android:focusable="auto"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/pricePicker" />
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 
 
 

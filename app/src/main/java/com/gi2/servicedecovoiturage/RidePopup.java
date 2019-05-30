@@ -2,7 +2,6 @@ package com.gi2.servicedecovoiturage;
 
 
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,11 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +19,6 @@ import android.widget.Toast;
 import com.gi2.servicedecovoiturage.logregform.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -67,10 +61,10 @@ public class RidePopup{
         date = myDialog.findViewById(R.id.date);
         price = myDialog.findViewById(R.id.price);
         places = myDialog.findViewById(R.id.places);
-        description = myDialog.findViewById(R.id.description);
+        description = myDialog.findViewById(R.id.maxPlaces);
         profilePic = myDialog.findViewById(R.id.photo);
 
-        txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
+        txtclose = myDialog.findViewById(R.id.txtclose);
         txtclose.setText("X");
         txtclose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,9 +74,9 @@ public class RidePopup{
         });
 
 
-        action = (Button) myDialog.findViewById(R.id.action);
-        contact = (Button) myDialog.findViewById(R.id.message);
-        viewprofile = (Button) myDialog.findViewById(R.id.viewprofile);
+        action = myDialog.findViewById(R.id.action);
+        contact = myDialog.findViewById(R.id.message);
+        viewprofile = myDialog.findViewById(R.id.viewprofile);
 
 
     }
